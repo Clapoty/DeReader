@@ -11,6 +11,7 @@ namespace DeReader
         private readonly IDatabaseClient _database;
         private readonly ILog _logger = LogManager.GetLogger(typeof (Hub));
 
+        // Dependency Injection is managed by Nancy with TinyIoC
         public Hub(IDatabaseClient database)
         {
             _database = database;
