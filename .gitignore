@@ -1,0 +1,6 @@
+*.user
+.nuget
+packages
+bin
+obj
+*.suo
