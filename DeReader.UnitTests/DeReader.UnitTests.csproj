@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -73,9 +73,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Database\Database.csproj">
+      <Project>{815bec7f-087e-429c-bfc4-e29348dffd0f}</Project>
+      <Name>Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeReader.Api\DeReader.Api.csproj">
+      <Project>{c1a11fd2-176d-46b5-9779-ff711dc24a80}</Project>
+      <Name>DeReader.Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DeReader\DeReader.csproj">
-      <Project>{93F00BDF-CCF6-45DC-BEA4-FA7C59CAFB16}</Project>
+      <Project>{93f00bdf-ccf6-45dc-bea4-fa7c59cafb16}</Project>
       <Name>DeReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RssFetcher\RssFetcher.csproj">
+      <Project>{9bbed3e5-7e60-4147-b1ed-ca98aa182cc1}</Project>
+      <Name>RssFetcher</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

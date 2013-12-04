@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using DeReader.Api;
+using NUnit.Framework;
 using Nancy;
 using Nancy.Testing;
 using Moq;

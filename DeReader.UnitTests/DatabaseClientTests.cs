@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DeReader.Api;
 using NUnit.Framework;
 
 namespace DeReader.UnitTests
@@ -9,7 +10,7 @@ namespace DeReader.UnitTests
     [TestFixture]
     public class DatabaseClientTests
     {
-        private DatabaseClient _database;
+        private IDatabaseClient _database;
         
         [SetUp]
         public void Init()

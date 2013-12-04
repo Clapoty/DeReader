@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DeReader.Api;
 using Nancy;
 using log4net;
 
@@ -21,7 +22,7 @@ namespace DeReader
                     //TODO : see LoginAndRedirect in Nancy.Authentication.Forms 
                     try
                     {
-                        dynamic createdUser = database.GetUser(parameters.name);
+                        dynamic createdUser = _database.GetUser(parameters.name);
                         _logger.InfoFormat("User get : {0}", createdUser.Name);
                         return string.Format("user asked is {0} and password {1}", createdUser.Name,
                                              createdUser.Password);
@@ -54,7 +55,7 @@ namespace DeReader
                     try
                     {
                         string source = parameters.stream;
-                        User user = database.GetUser(parameters.name);
+                        User user = _database.GetUser(parameters.name);
                         // TODO : does the user have rights to do that operation ?
                         if (user == null)
                         {
@@ -63,7 +64,7 @@ namespace DeReader
 
                         _logger.DebugFormat("Data fetched for user : {0}", user.Name);
 
-                        var fetcher = new RssFetcher();
+                        var fetcher = new RssFetcher.Fetcher();
 
                         // fetch all articles from source
                         Dictionary<string, Article> fetchedArticles = fetcher.Fetch(source);
@@ -85,7 +86,7 @@ namespace DeReader
                             {
                                 _logger.DebugFormat("Inserting article {0}", article.Value);
                                 // insert new article
-                                database.InsertArticle(article.Value);
+                                _database.InsertArticle(article.Value);
                             }
                         }
 
